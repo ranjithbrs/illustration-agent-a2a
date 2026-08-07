@@ -46,3 +46,15 @@ The agent generates branded illustrations and is deployed on **Google Cloud Run*
 B.Tech CSBS Student, Nehru Institute of Engineering and Technology  
 GitHub: [ranjithbrs](https://github.com/ranjithbrs)  
 LinkedIn: [your-linkedin-profile]
+
+## 📸 Screenshots
+
+All lab completion screenshots are available here:  
+👉 [View on Google Drive](https://drive.google.com/drive/folders/1wpkWUdeBA5KY00FYzXLmUSAFq4BUcFam?usp=drive_link)
+
+Includes:
+- Cloud Shell push confirmation  
+- Lab completion (100/100)  
+- Course overview and assessment  
+- Code editor view (agent.py)  
+- License commit proof
