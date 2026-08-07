@@ -1,0 +1,17 @@
+{
+    "name": "illustration_agent",
+    "description": "An agent designed to generate branded illustrations for Cymbal Stadiums.",
+    "defaultInputModes": ["text/plain"],
+    "defaultOutputModes": ["application/json"],
+    "skills": [
+    {
+        "id": "illustrate_text",
+        "name": "Illustrate Text",
+        "description": "Generate an illustration to illustrate the meaning of provided text.",
+        "tags": ["illustration", "image generation"]
+    }
+    ],
+    "url": "https://illustration-agent-275456095190.us-east4.run.app/a2a/illustration_agent",
+    "capabilities": {},
+    "version": "1.0.0"
+}
