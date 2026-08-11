@@ -46,7 +46,7 @@ The agent generates branded illustrations and is deployed on **Google Cloud Run*
 💻 GitHub: [ranjithbrs](https://github.com/ranjithbrs)  
 🔗 LinkedIn: [linkedin.com/in/ranjith-b-85907831a](https://linkedin.com/in/ranjith-b-85907831a)
 
-## 📸 Screenshots
+## 📸 Proof & Screenshots
 All lab completion screenshots are available here:  
 👉 [View on Google Drive](https://drive.google.com/drive/folders/1wpkWUdeBA5KY00FYzXLmUSAFq4BUcFam?usp=drive_link)
 
