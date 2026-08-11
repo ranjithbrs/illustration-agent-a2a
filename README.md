@@ -74,3 +74,6 @@ Includes:
   - Deployed illustration agent to Google Cloud Run  
   - Verified remote A2A connectivity  
   - Lab completion: 100/100
+
+## 🏅 Certifications
+  - [Google Cloud Technical Series – Agentic AI Edition (July ’26)](https://www.credly.com/badges/16f8a1c9-1a67-4daf-a8cd-07e7892fc202/public_url)
