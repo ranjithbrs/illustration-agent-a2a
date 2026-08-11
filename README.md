@@ -56,3 +56,21 @@ Includes:
 - Course overview and assessment  
 - Code editor view (agent.py)  
 - License commit proof
+
+## 📂 Repository Contents
+- **Lab 1: Environment Setup**
+  - Installed ADK and configured environment
+  - Verified local agent run and validator success
+  - (No code pushed, proof via screenshots)
+
+- **Lab 2: Daily Email Recap Flow**
+  - Configured Gemini to summarize unread emails every morning at 7:15 AM  
+  - Flow has been running automatically since Aug 5, 2026  
+  - Verified via Google Chat notifications (Urgent, Meeting Updates, FYI)  
+  - (No code pushed, proof via screenshots)
+
+- **Lab 3: Illustration Agent A2A**
+  - Full code pushed to GitHub  
+  - Deployed illustration agent to Google Cloud Run  
+  - Verified remote A2A connectivity  
+  - Lab completion: 100/100
