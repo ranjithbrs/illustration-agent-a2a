@@ -168,7 +168,7 @@ Service URL: https://illustration-agent-275456095190.us-east4.run.app
 🎓 *B.Tech Computer Science & Business Systems (CSBS)*  
 🏛️ *Nehru Institute of Engineering and Technology, Coimbatore*  
 
-- 💼 **LinkedIn**: [linkedin.com/in/ranjith-b-85907831a](https://linkedin.com/in/ranjith-b-85907831a)  
+- 💼 **LinkedIn**: [linkedin.com/in/ranjith-b-csbs23](https://linkedin.com/in/ranjith-b-csbs23)  
 - 🐙 **GitHub**: [github.com/ranjithbrs](https://github.com/ranjithbrs)  
 - 🌐 **Portfolio**: [ranjithbrs.github.io/portfolio](https://ranjithbrs.github.io/portfolio/)  
 - 📧 **Email**: ranjithb2k06@gmail.com  
