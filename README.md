@@ -22,6 +22,19 @@
 
 ---
 
+## 💡 What is Agent-to-Agent (A2A) AI in 30 Seconds? (In Plain English)
+
+Imagine you work in an office and ask your virtual assistant: *"Can you write an announcement for our upcoming football match and include an official stadium poster?"*
+Your assistant might write the announcement text, but they don't know how to draw posters. So they walk down the hall, ask the graphic designer to create the poster, and return with the finished announcement and picture combined.
+
+**Agent-to-Agent (A2A) AI does the exact same thing with artificial intelligence!**
+Instead of having a single AI try to do everything, specialized AI bots collaborate:
+1. 🧠 **The Lead AI (Orchestrator):** Writes the announcement and recognizes it needs an illustration.
+2. 🤖 **The Illustration AI (This Project):** An AI artist running in the Google Cloud that automatically creates pictures following strict company branding rules.
+3. 🤝 **The Handshake (A2A Protocol):** The two AIs talk directly to each other over the cloud without any human needing to copy-paste between them!
+
+---
+
 ## 🎯 Project Overview
 
 This repository demonstrates building, deploying, and interconnecting autonomous AI agents using the **Google Agent Development Kit (ADK)** and the **Agent-to-Agent (A2A) SDK**. 
