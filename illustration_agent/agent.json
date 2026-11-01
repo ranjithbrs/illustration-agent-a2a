@@ -4,14 +4,17 @@
     "defaultInputModes": ["text/plain"],
     "defaultOutputModes": ["application/json"],
     "skills": [
-    {
-        "id": "illustrate_text",
-        "name": "Illustrate Text",
-        "description": "Generate an illustration to illustrate the meaning of provided text.",
-        "tags": ["illustration", "image generation"]
-    }
+        {
+            "id": "illustrate_text",
+            "name": "Illustrate Text",
+            "description": "Generate an illustration to illustrate the meaning of provided text.",
+            "tags": ["illustration", "image generation"]
+        }
     ],
     "url": "https://illustration-agent-275456095190.us-east4.run.app/a2a/illustration_agent",
-    "capabilities": {},
+    "capabilities": {
+        "status": "archived_training_reference",
+        "notice": "The endpoint URL represents the deployment from the Google Cloud Technical Series evaluation session. When deploying to a new Cloud Run service or local instance, update this URL accordingly."
+    },
     "version": "1.0.0"
 }
