@@ -117,26 +117,41 @@ The microservice exposes its capabilities via `agent.json` so remote orchestrato
 ```bash
 # Clone repository
 git clone https://github.com/ranjithbrs/illustration-agent-a2a.git
-cd illustration-agent-a2a/illustration_agent
+cd illustration-agent-a2a
 
 # Create virtual environment
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install dependencies
-pip install -r requirements.txt
+pip install -r illustration_agent/requirements.txt
 pip install "google-adk[a2a]==1.31.0"
 
 # Configure environment (.env)
-cp .env.example .env
+cp illustration_agent/.env.example illustration_agent/.env
 # Set GOOGLE_GENAI_USE_VERTEXAI=true, GOOGLE_CLOUD_PROJECT, MODEL, etc.
 
 # Run local ADK Developer Playground
+cd illustration_agent
 adk web
 ```
 Navigate to `http://localhost:8000` to interact with the agent in the local playground.
 
-### 2. Deploying to Google Cloud Run
+### 2. Automated Test Suite (Zero-Cloud Mock Verification)
+The repository includes an automated test suite verifying A2A schema compliance, tool fallback dictionaries, and global plugin error handling without requiring active GCP credentials:
+```bash
+python -m unittest discover -s tests -p "test_*.py"
+```
+**Output**:
+```text
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.053s
+
+OK
+```
+
+### 3. Deploying to Google Cloud Run
 Deploy the agent container serverlessly to Cloud Run:
 ```bash
 adk deploy cloudrun \
@@ -145,14 +160,9 @@ adk deploy cloudrun \
     --service-name=illustration-agent
 ```
 
-**Expected Deployment Verification Output**:
-```text
-Building container image via Cloud Build...
-Deploying container to Google Cloud Run service [illustration-agent] in region [us-east4]...
-Service [illustration-agent] revision [illustration-agent-00001-cmf] is serving 100 percent of traffic.
-Service URL: https://illustration-agent-275456095190.us-east4.run.app
-A2A Endpoint: https://illustration-agent-275456095190.us-east4.run.app/a2a/illustration_agent
-```
+> [!NOTE]
+> **Ephemeral Cloud Infrastructure Note**:
+> The Cloud Run service URL (`https://illustration-agent-275456095190.us-east4.run.app`) and project (`qwiklabs-gcp-*`) were deployed during the live Google Cloud Technical Series evaluation session. In accordance with Google Cloud training lab lifecycle policies, temporary lab project resources are torn down following grading completion. The included test suite and local `adk web` runtime allow full offline evaluation and verification.
 
 ---
 
@@ -178,6 +188,19 @@ The **100/100 score** reflects completion of all three automated evaluation chec
 ```text
 illustration-agent-a2a/
 ├── cloud-technical-series.png         # Official Google Cloud series badge asset
+├── .gitignore                         # Security rules excluding .env, cache, and session DBs
+├── LICENSE                            # MIT open-source license
+├── README.md                          # Technical architecture & A2A protocol guide
+├── tests/                             # Automated test suite
+│   └── test_agent_fallback.py         # Unit tests for A2A schema & resilient fallbacks
+└── illustration_agent/                # Core agent microservice package
+    ├── agent.py                       # ADK agent definition & GCS signed URL generation
+    ├── agent.json                     # Declarative A2A agent specification card
+    ├── requirements.txt               # Service dependencies (google-adk, google-genai)
+    ├── .env.example                   # Cloud environment configuration template
+    ├── adk_utils/                     # Telemetry plugins & cached responses
+    └── mock_images/                   # Pre-cached fallback assets for quota resilience
+```
 ├── LICENSE                            # MIT open-source license
 ├── README.md                          # Technical architecture & A2A protocol guide
 └── illustration_agent/                # Core agent microservice package
