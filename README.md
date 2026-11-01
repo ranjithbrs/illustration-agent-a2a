@@ -104,7 +104,10 @@ The microservice exposes its capabilities via `agent.json` so remote orchestrato
         }
     ],
     "url": "https://illustration-agent-275456095190.us-east4.run.app/a2a/illustration_agent",
-    "capabilities": {},
+    "capabilities": {
+        "status": "archived_training_reference",
+        "notice": "The endpoint URL represents the deployment from the Google Cloud Technical Series evaluation session. When deploying to a new Cloud Run service or local instance, update this URL accordingly."
+    },
     "version": "1.0.0"
 }
 ```
@@ -137,19 +140,25 @@ adk web
 ```
 Navigate to `http://localhost:8000` to interact with the agent in the local playground.
 
-### 2. Automated Test Suite (Zero-Cloud Mock Verification)
+### 2. Automated Test Suite (Failure Mode Simulation & Zero-Cloud Mock Verification)
 The repository includes an automated test suite verifying A2A schema compliance, tool fallback dictionaries, and global plugin error handling without requiring active GCP credentials:
 ```bash
 python -m unittest discover -s tests -p "test_*.py"
 ```
 **Output**:
 ```text
-....
+........
 ----------------------------------------------------------------------
-Ran 4 tests in 0.053s
+Ran 8 tests in 0.058s
 
 OK
 ```
+*Simulated Failure Modes Verified*:
+- **Network Timeouts**: Intercepts dropped connections during generation, returning valid stadium fallback URLs.
+- **429 Quota Exhaustion**: Intercepts `RESOURCE_EXHAUSTED` errors, returning keyword-routed training/mentor fallback assets.
+- **Authentication Exceptions**: Intercepts missing GCP ADC credentials, preventing crashes during token resolution.
+- **GCS Outages**: Intercepts 503 storage upload exceptions, maintaining strict dictionary return contracts (`{"image_url": str}`).
+- **Schema & Specification**: Validates `agent.json` field structure, input/output modes, and deployment status metadata.
 
 ### 3. Deploying to Google Cloud Run
 Deploy the agent container serverlessly to Cloud Run:
@@ -161,8 +170,9 @@ adk deploy cloudrun \
 ```
 
 > [!NOTE]
-> **Ephemeral Cloud Infrastructure Note**:
-> The Cloud Run service URL (`https://illustration-agent-275456095190.us-east4.run.app`) and project (`qwiklabs-gcp-*`) were deployed during the live Google Cloud Technical Series evaluation session. In accordance with Google Cloud training lab lifecycle policies, temporary lab project resources are torn down following grading completion. The included test suite and local `adk web` runtime allow full offline evaluation and verification.
+> **Active Endpoint & Infrastructure Note**:
+> - The Cloud Run service URL (`https://illustration-agent-275456095190.us-east4.run.app`) and project (`qwiklabs-gcp-*`) were deployed during the live Google Cloud Technical Series evaluation session. In accordance with Google Cloud training lab lifecycle policies, temporary lab project resources are torn down following grading completion.
+> - **Post-Deployment Step**: When deploying your own instance to Cloud Run or local server, update the `"url"` field in `illustration_agent/agent.json` with your active service URL (e.g. `https://<your-service>.run.app/a2a/illustration_agent`) so remote orchestrator agents route requests to the live endpoint. The included test suite and local `adk web` runtime allow full offline evaluation and verification.
 
 ---
 
